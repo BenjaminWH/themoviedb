@@ -1,7 +1,7 @@
 "use client";
 
-import { loadMoreByGenre } from "@/app/actions/discover";
-import { MediaCard } from "@/app/components/MediaCard";
+import { loadMoreByGenre } from "@/app/_actions/load-more-by-genre";
+import { MediaCard } from "@/app/_components/MediaCard";
 import type { MediaSummary, PageCursor } from "@/lib/types/media";
 import { useState, useTransition } from "react";
 

@@ -1,8 +1,8 @@
-import { discoverByGenre } from "@/app/actions/discover";
+import { discoverByGenre } from "@/app/_actions/discover-by-genre";
 import {
   GenreSlider,
   type GenreSectionData,
-} from "@/app/components/GenreSlider";
+} from "@/app/_components/GenreSlider";
 import { GENRES, type GenreConfig } from "@/lib/genres";
 import { mergeAndSortByPopularity } from "@/lib/utils";
 

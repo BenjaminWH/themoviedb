@@ -3,7 +3,15 @@ import Link from "next/link";
 import { posterUrl } from "@/lib/tmdb-client";
 import type { MediaSummary } from "@/lib/types/media";
 
-export function MediaCard({ media, priority = false }: { media: MediaSummary; priority?: boolean }) {
+export function MediaCard({
+  media,
+  priority = false,
+  className = "",
+}: {
+  media: MediaSummary;
+  priority?: boolean;
+  className?: string;
+}) {
   const href = media.mediaType === "movie" ? `/movie/${media.id}` : `/tv/${media.id}`;
   const src = posterUrl(media.posterPath, "w342");
 
@@ -11,7 +19,7 @@ export function MediaCard({ media, priority = false }: { media: MediaSummary; pr
     <Link
       href={href}
       draggable={false}
-      className="group w-[150px] shrink-0 snap-start sm:w-[170px]"
+      className={`group w-[150px] shrink-0 snap-start sm:w-[170px] ${className}`}
     >
       <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-zinc-800 ring-1 ring-white/10 transition group-hover:ring-white/30">
         <span className="absolute top-2 left-2 z-10 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-zinc-200 uppercase">
