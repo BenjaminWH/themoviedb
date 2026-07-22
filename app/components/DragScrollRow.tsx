@@ -42,6 +42,13 @@ export function DragScrollRow({
   const momentumFrame = useRef<number | null>(null);
   const [edgeMask, setEdgeMask] = useState(() => buildEdgeMask(0, 0));
 
+  function cancelMomentum() {
+    if (momentumFrame.current !== null) {
+      cancelAnimationFrame(momentumFrame.current);
+      momentumFrame.current = null;
+    }
+  }
+
   useEffect(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -66,13 +73,6 @@ export function DragScrollRow({
       cancelMomentum();
     };
   }, []);
-
-  function cancelMomentum() {
-    if (momentumFrame.current !== null) {
-      cancelAnimationFrame(momentumFrame.current);
-      momentumFrame.current = null;
-    }
-  }
 
   function startMomentum(initialVelocity: number) {
     const el = scrollRef.current;
