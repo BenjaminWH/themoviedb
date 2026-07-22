@@ -11,9 +11,9 @@ export function MediaCard({ media, priority = false }: { media: MediaSummary; pr
     <Link
       href={href}
       draggable={false}
-      className="group w-37.5 shrink-0 snap-start sm:w-42.5"
+      className="group w-[150px] shrink-0 snap-start sm:w-[170px]"
     >
-      <div className="relative aspect-2/3 w-full overflow-hidden rounded-lg bg-zinc-800 ring-1 ring-white/10 transition group-hover:ring-white/30">
+      <div className="relative aspect-[2/3] w-full overflow-hidden rounded-lg bg-zinc-800 ring-1 ring-white/10 transition group-hover:ring-white/30">
         <span className="absolute top-2 left-2 z-10 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-zinc-200 uppercase">
           {media.mediaType === "movie" ? "Movie" : "Series"}
         </span>
