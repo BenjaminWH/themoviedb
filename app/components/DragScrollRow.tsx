@@ -63,6 +63,7 @@ export function DragScrollRow({
     return () => {
       el.removeEventListener("scroll", updateEdgeMask);
       resizeObserver.disconnect();
+      cancelMomentum();
     };
   }, []);
 
