@@ -18,7 +18,8 @@ export function LoadMoreTrigger({
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  const hasMore = movie.page < movie.totalPages || (tv ? tv.page < tv.totalPages : false);
+  const hasMore =
+    movie.page < movie.totalPages || (tv ? tv.page < tv.totalPages : false);
 
   function loadMore() {
     setError(null);
@@ -46,10 +47,14 @@ export function LoadMoreTrigger({
             onClick={loadMore}
             disabled={isPending}
             className="flex aspect-[2/3] w-full flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-zinc-700 text-xs font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white disabled:opacity-50"
+          >
             {isPending ? "Loading…" : error ? "Retry" : "Load more"}
           </button>
           {/* Hidden spacer so the tile matches a real card's total height. */}
-          <p aria-hidden className="invisible mt-2 line-clamp-2 text-sm font-medium">
+          <p
+            aria-hidden
+            className="invisible mt-2 line-clamp-2 text-sm font-medium"
+          >
             Placeholder movie title text
           </p>
           <p aria-hidden className="invisible text-xs">
