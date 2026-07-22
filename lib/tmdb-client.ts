@@ -2,7 +2,7 @@
  * Low-level TMDB client: base URL, auth, image helpers, and errors.
  * Resource-specific calls live next to the features that use them.
  */
-import type { z } from "zod";
+import type { ZodType } from "zod";
 
 const TMDB_API_BASE = "https://api.themoviedb.org/3";
 const TMDB_IMAGE_BASE = "https://image.tmdb.org/t/p";
@@ -15,7 +15,7 @@ export class TmdbNotFoundError extends Error {}
 
 export async function tmdbFetch<T>(
   path: string,
-  schema: z.ZodType<T>,
+  schema: ZodType<T>,
   searchParams: Record<string, string | number | undefined> = {},
   revalidateSeconds = 3600
 ): Promise<T> {
