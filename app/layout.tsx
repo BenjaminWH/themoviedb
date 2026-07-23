@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="relative flex min-h-full flex-col bg-background text-foreground">
+      <body className="relative flex min-h-full flex-col overflow-x-hidden bg-background text-foreground">
         <div
           aria-hidden
           className="fixed inset-0 -z-10 overflow-hidden bg-background"

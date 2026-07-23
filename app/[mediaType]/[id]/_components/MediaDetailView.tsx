@@ -33,7 +33,7 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
             ← Back to browse
           </Link>
 
-          <div className="flex flex-col gap-8 lg:flex-row">
+          <div className="flex flex-col items-center gap-8 lg:flex-row lg:items-stretch">
             {coverUrl && (
               <div className="shrink-0">
                 <div className="relative aspect-2/3 w-50 overflow-hidden rounded-lg bg-zinc-800 shadow-2xl ring-1 ring-white/10 sm:w-65">
@@ -49,7 +49,7 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
               </div>
             )}
 
-            <div className="flex-1 space-y-6">
+            <div className="flex-1 space-y-6 text-center lg:text-left">
               <div className="space-y-3">
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -58,7 +58,7 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
                   <WishlistButton media={media} variant="full" />
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-300">
+                <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-zinc-300 lg:justify-start">
                   {media.year && <span>{media.year}</span>}
                   {runtime && <span>{runtime}</span>}
                   {media.voteAverage > 0 && (
@@ -79,11 +79,14 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
                 </div>
 
                 {media.genres.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap justify-center gap-2 lg:justify-start">
                     {media.genres.map((genre) => {
                       const href = getGenreLink(genre.id, media.mediaType);
                       const pill = (
-                        <span className="inline-flex rounded-full bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300 ring-1 ring-white/10">
+                        <span
+                          key={genre.id}
+                          className="inline-flex rounded-full bg-zinc-900 px-3 py-1 text-xs font-medium text-zinc-300 ring-1 ring-white/10"
+                        >
                           {genre.name}
                         </span>
                       );
