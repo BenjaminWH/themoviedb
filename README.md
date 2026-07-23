@@ -1,30 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+A [Next.js](https://nextjs.org) app for browsing movies and TV shows via [The Movie Database (TMDB)](https://www.themoviedb.org/) API, with genre browsing, media details, and a wishlist.
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies** (this project uses pnpm):
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```bash
+   pnpm install
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Set up your TMDB API credentials**:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   cp .env.example .env.local
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   Then fill in `TMDB_API_READ_ACCESS_TOKEN` in `.env.local`. Get a v4 Read Access Token from your [TMDB account settings](https://www.themoviedb.org/settings/api) (you'll need a free TMDB account).
 
-## Learn More
+3. **Run the development server**:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   pnpm dev
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   Open [http://localhost:3000](http://localhost:3000) to see the app.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
+
+- `pnpm dev` — start the dev server
+- `pnpm build` — build for production
+- `pnpm start` — run the production build
+- `pnpm lint` — run ESLint
+
+## Project structure
+
+- `app/` — Next.js App Router pages, server actions (`app/_actions/`), and UI components (`app/_components/`)
+- `lib/` — TMDB API client, types, and shared utilities
+
+## Notes for contributors
+
+This project pins a specific Next.js version with breaking changes from the version most tooling/training data expects — see [AGENTS.md](./AGENTS.md) and `node_modules/next/dist/docs/` before making framework-level changes.
