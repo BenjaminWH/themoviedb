@@ -1,7 +1,7 @@
 import type { MediaType } from "@/lib/tmdb-client";
 
 export type GenreConfig = {
-  /** URL-safe identifier used in /genre/[mediaType]/[genreId] links */
+  /** URL-safe identifier used in /genre/[slug]/[mediaType] links */
   slug: string;
   title: string;
   movieGenreId: number;
