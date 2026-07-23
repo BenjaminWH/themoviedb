@@ -13,12 +13,21 @@ export function WishlistButton({
   variant?: "icon" | "full";
 }) {
   const { isWishlisted, toggle } = useWishlist();
-  const wishlisted = isWishlisted(media);
+
+  const wishlistItem: WishlistItem = {
+    id: media.id,
+    mediaType: media.mediaType,
+    title: media.title,
+    posterPath: media.posterPath,
+    year: media.year,
+  };
+
+  const wishlisted = isWishlisted(wishlistItem);
 
   function onClick(e: MouseEvent) {
     e.preventDefault();
     e.stopPropagation();
-    toggle(media);
+    toggle(wishlistItem);
   }
 
   const label = wishlisted ? "Remove from wishlist" : "Add to wishlist";
