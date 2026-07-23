@@ -32,7 +32,7 @@ export function YouTubePlayer({ videoKey }: { videoKey: string }) {
     >
       {shouldLoad ? (
         <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoKey}`}
+          src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoKey)}`}
           title="YouTube trailer"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
