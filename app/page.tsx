@@ -47,7 +47,7 @@ export default async function page() {
   const feeds = await Promise.all(GENRES.map(loadGenreSectionData));
 
   return (
-    <main className="mx-auto max-w-[1600px] space-y-10 px-4 py-8 sm:px-8 sm:py-12">
+    <main className="mx-auto max-w-400 space-y-10 px-4 py-8 sm:px-8 sm:py-12">
       <header className="space-y-1">
         <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
           Browse by Genre

@@ -47,7 +47,7 @@ export default async function GenrePage({
   const mediaLabel = mediaType === "tv" ? "TV Series" : "Movies";
 
   return (
-    <main className="mx-auto max-w-[1600px] px-4 py-8 sm:px-8 sm:py-12">
+    <main className="mx-auto max-w-400 px-4 py-8 sm:px-8 sm:py-12">
       <Link
         href="/"
         className="mb-6 inline-flex items-center text-sm font-medium text-zinc-400 transition hover:text-white"

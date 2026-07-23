@@ -41,12 +41,12 @@ export function LoadMoreTrigger({
         <MediaCard key={`${media.mediaType}-${media.id}`} media={media} />
       ))}
       {hasMore && (
-        <div className="w-[150px] shrink-0 sm:w-[170px]">
+        <div className="w-37.5 shrink-0 sm:w-42.5">
           <button
             type="button"
             onClick={loadMore}
             disabled={isPending}
-            className="flex aspect-[2/3] w-full flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-zinc-700 text-xs font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white disabled:opacity-50"
+            className="flex aspect-2/3 w-full flex-col items-center justify-center gap-1 rounded-lg border border-dashed border-zinc-700 text-xs font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-white disabled:opacity-50"
           >
             {isPending ? "Loading…" : error ? "Retry" : "Load more"}
           </button>
