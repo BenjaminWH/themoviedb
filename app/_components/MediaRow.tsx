@@ -1,6 +1,6 @@
-import { DragScrollRow } from "@/app/components/DragScrollRow";
-import { LoadMoreTrigger } from "@/app/components/LoadMoreTrigger";
-import { MediaCard } from "@/app/components/MediaCard";
+import { DragScrollRow } from "@/app/_components/DragScrollRow";
+import { LoadMoreTrigger } from "@/app/_components/LoadMoreTrigger";
+import { MediaCard } from "@/app/_components/MediaCard";
 import type { MediaSummary, PageCursor } from "@/lib/types/media";
 
 export function MediaRow({
