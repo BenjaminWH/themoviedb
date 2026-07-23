@@ -85,6 +85,7 @@ export function MediaGrid({
             key={`${media.mediaType}-${media.id}`}
             media={media}
             priority={index < 6}
+            className="w-full"
           />
         ))}
       </div>
