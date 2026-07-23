@@ -1,3 +1,5 @@
+import { WishlistFab } from "@/app/_components/WishlistFab";
+import { WishlistProvider } from "@/lib/wishlist-context";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -38,7 +40,10 @@ export default function RootLayout({
           <div className="absolute bottom-[-15%] left-[20%] h-[50vw] w-[50vw] animate-blob animation-delay-5000 rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,#60a5fa_70%,transparent)_0%,transparent_65%)] blur-[70px]" />
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,var(--background)_85%)]" />
         </div>
-        {children}
+        <WishlistProvider>
+          {children}
+          <WishlistFab />
+        </WishlistProvider>
       </body>
     </html>
   );

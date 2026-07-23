@@ -1,5 +1,6 @@
+import { WishlistButton } from "@/app/_components/WishlistButton";
 import { posterUrl } from "@/lib/tmdb-client";
-import type { MediaSummary } from "@/lib/types/media";
+import type { WishlistItem } from "@/lib/types/wishlist";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,7 +9,7 @@ export function MediaCard({
   priority = false,
   className = "",
 }: {
-  media: MediaSummary;
+  media: WishlistItem;
   priority?: boolean;
   className?: string;
 }) {
@@ -26,6 +27,7 @@ export function MediaCard({
         <span className="absolute top-2 left-2 z-10 rounded bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold tracking-wide text-zinc-200 uppercase">
           {media.mediaType === "movie" ? "Movie" : "Series"}
         </span>
+        <WishlistButton media={media} />
         {src ? (
           <Image
             src={src}

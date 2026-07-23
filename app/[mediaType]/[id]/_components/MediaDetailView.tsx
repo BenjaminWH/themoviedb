@@ -1,3 +1,4 @@
+import { WishlistButton } from "@/app/_components/WishlistButton";
 import { getGenreLink } from "@/lib/genres";
 import { backdropUrl, posterUrl } from "@/lib/tmdb-client";
 import type { MediaDetails } from "@/lib/types/media-details";
@@ -50,9 +51,12 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
 
             <div className="flex-1 space-y-6">
               <div className="space-y-3">
-                <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                  {media.title}
-                </h1>
+                <div className="flex flex-wrap items-start justify-between gap-4">
+                  <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                    {media.title}
+                  </h1>
+                  <WishlistButton media={media} variant="full" />
+                </div>
 
                 <div className="flex flex-wrap items-center gap-3 text-sm text-zinc-300">
                   {media.year && <span>{media.year}</span>}
