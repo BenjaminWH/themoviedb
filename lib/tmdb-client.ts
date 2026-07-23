@@ -51,7 +51,7 @@ export async function tmdbFetch<T>(
 
 export function posterUrl(
   path: string | null,
-  size: "w185" | "w342" | "w500" = "w342"
+  size: "w185" | "w342" | "w500" | "w780" | "original" = "w342"
 ): string | undefined {
   return path ? `${TMDB_IMAGE_BASE}/${size}${path}` : undefined;
 }
@@ -59,6 +59,13 @@ export function posterUrl(
 export function backdropUrl(
   path: string | null,
   size: "w780" | "w1280" | "original" = "w1280"
+): string | undefined {
+  return path ? `${TMDB_IMAGE_BASE}/${size}${path}` : undefined;
+}
+
+export function profileUrl(
+  path: string | null,
+  size: "w45" | "w185" | "h632" | "original" = "w185"
 ): string | undefined {
   return path ? `${TMDB_IMAGE_BASE}/${size}${path}` : undefined;
 }
