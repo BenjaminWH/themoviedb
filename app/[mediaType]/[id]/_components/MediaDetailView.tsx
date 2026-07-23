@@ -60,7 +60,11 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
                   {media.voteAverage > 0 && (
                     <span className="inline-flex items-center gap-1">
                       {media.voteAverage.toFixed(1)}
-                      <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                        aria-hidden="true"
+                        focusable="false"
+                      />
                     </span>
                   )}
                   {media.status && (
