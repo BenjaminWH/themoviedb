@@ -51,7 +51,7 @@ export function MediaDetailView({ media }: { media: MediaDetails }) {
 
             <div className="flex-1 space-y-6 text-center lg:text-left">
               <div className="space-y-3">
-                <div className="flex flex-wrap items-start justify-between gap-4">
+                <div className="flex flex-col items-center gap-4 lg:flex-row lg:items-start lg:justify-between">
                   <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">
                     {media.title}
                   </h1>
