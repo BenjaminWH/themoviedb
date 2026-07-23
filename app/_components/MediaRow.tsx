@@ -1,26 +1,21 @@
-import { DragScrollRow } from "@/app/_components/DragScrollRow";
 import { LoadMoreTrigger } from "@/app/_components/LoadMoreTrigger";
 import { MediaCard } from "@/app/_components/MediaCard";
 import type { MediaSummary, PageCursor } from "@/lib/types/media";
 
 export function MediaRow({
-  firstPageItems,
+  initialMedia,
   moviePage,
   tvPage,
   priorityFirstImage = false,
 }: {
-  firstPageItems: MediaSummary[];
+  initialMedia: MediaSummary[];
   moviePage: PageCursor;
   tvPage?: PageCursor;
   priorityFirstImage?: boolean;
 }) {
-  if (firstPageItems.length === 0) {
-    return null;
-  }
-
   return (
-    <DragScrollRow className="flex gap-4 pb-2">
-      {firstPageItems.map((media, index) => (
+    <>
+      {initialMedia.map((media, index) => (
         <MediaCard
           key={`${media.mediaType}-${media.id}`}
           media={media}
@@ -28,6 +23,6 @@ export function MediaRow({
         />
       ))}
       <LoadMoreTrigger moviePage={moviePage} tvPage={tvPage} />
-    </DragScrollRow>
+    </>
   );
 }

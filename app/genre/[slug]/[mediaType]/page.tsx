@@ -2,7 +2,6 @@ import { discoverByGenre } from "@/app/_actions/discover-by-genre";
 import { MediaGrid } from "@/app/genre/[slug]/[mediaType]/_components/MediaGrid";
 import { MediaTypeTabs } from "@/app/genre/[slug]/[mediaType]/_components/MediaTypeTabs";
 import { getGenreBySlug } from "@/lib/genres";
-import type { MediaType } from "@/lib/tmdb-client";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -25,15 +24,14 @@ export default async function GenrePage({
 }: {
   params: Promise<{ slug: string; mediaType: string }>;
 }) {
-  const { slug, mediaType: rawMediaType } = await params;
+  const { slug, mediaType } = await params;
 
   const genre = getGenreBySlug(slug);
   if (!genre) notFound();
 
-  if (rawMediaType !== "movie" && rawMediaType !== "tv") {
+  if (mediaType !== "movie" && mediaType !== "tv") {
     notFound();
   }
-  const mediaType: MediaType = rawMediaType;
 
   const genreId = mediaType === "movie" ? genre.movieGenreId : genre.tvGenreId;
   if (!genreId) notFound();

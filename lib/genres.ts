@@ -1,5 +1,7 @@
+import type { MediaType } from "@/lib/tmdb-client";
+
 export type GenreConfig = {
-  /** URL-safe identifier used in /genre/[mediaType]/[genreId] links */
+  /** URL-safe identifier used in /genre/[slug]/[mediaType] links */
   slug: string;
   title: string;
   movieGenreId: number;
@@ -25,4 +27,20 @@ export const GENRES: GenreConfig[] = [
 
 export function getGenreBySlug(slug: string): GenreConfig | undefined {
   return GENRES.find((genre) => genre.slug === slug);
+}
+
+/** Reverse lookup: given a TMDB genre ID and media type, find the matching
+ * /genre/[slug]/[mediaType] link, or null if there's no genre page for it. */
+export function getGenreLink(
+  genreId: number,
+  mediaType: MediaType,
+): string | null {
+  const genre = GENRES.find(
+    (g) => g.movieGenreId === genreId || g.tvGenreId === genreId,
+  );
+  if (!genre) return null;
+  if (mediaType === "tv") {
+    return genre.tvGenreId === genreId ? `/genre/${genre.slug}/tv` : null;
+  }
+  return genre.movieGenreId === genreId ? `/genre/${genre.slug}/movie` : null;
 }

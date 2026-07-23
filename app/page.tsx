@@ -23,7 +23,7 @@ async function loadGenreSectionData(
   return {
     genre,
     totalCount: movies.totalResults + (series?.totalResults ?? 0),
-    firstPageItems: mergeAndSortByPopularity(
+    initialMedia: mergeAndSortByPopularity(
       movies.results,
       series?.results ?? [],
     ),
