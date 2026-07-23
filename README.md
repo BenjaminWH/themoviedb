@@ -35,7 +35,3 @@ A [Next.js](https://nextjs.org) app for browsing movies and TV shows via [The Mo
 
 - `app/` — Next.js App Router pages, server actions (`app/_actions/`), and UI components (`app/_components/`)
 - `lib/` — TMDB API client, types, and shared utilities
-
-## Notes for contributors
-
-This project pins a specific Next.js version with breaking changes from the version most tooling/training data expects — see [AGENTS.md](./AGENTS.md) and `node_modules/next/dist/docs/` before making framework-level changes.
